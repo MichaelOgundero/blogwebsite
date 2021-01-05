@@ -22,22 +22,38 @@ router.route("/addSection").post((req, res) => {
 });
 
 router.route("/addArticle").post((req, res) => {
-    Section.findOne(
-        {sectionName: req.body.sectionName},
-        (err, section) => {
-            if(section){
-                console.log(section)
-                section.articleIDs.push(req.body.articleID)
+  Section.findOne({ sectionName: req.body.sectionName }, (err, section) => {
+    if (section) {
+      section.articleIDs.push(req.body.articleID);
 
-                section.save()
-                .then(()=>{res.status(200).json("added: "+req.body.articleID)})
-                .catch((err)=>res.status(400).json("error: "+err));
+      section
+        .save()
+        .then(() => {
+          res.status(200).json("added: " + req.body.articleID);
+        })
+        .catch((err) => res.status(400).json("error: " + err));
+    } else {
+      res.status(400).json("err: " + err);
+    }
+  });
+});
 
-            }else{
-                res.status(400).json("err: "+err)
-            }
-        }
-    )
+router.route("/deleteArticle/:articleID").delete((req, res) => {
+  Section.findOne({ sectionName: req.body.sectionName }, (err, section) => {
+    if (section) {
+      section.articleIDs = section.articleIDs.filter(
+        (articleID) => articleID !== req.params.articleID
+      );
+      section
+        .save()
+        .then(() => {
+          res.status(200).json("item deleted: " + req.params.articleID);
+        })
+        .catch((err) => res.status(400).json("err: " + err));
+    } else {
+      res.status(400).json("err: " + err);
+    }
+  });
 });
 
 module.exports = router;
