@@ -5,8 +5,11 @@ import { Input } from "@rebass/forms";
 import { loggedOutLinks, loggedInLinks } from "./links";
 import { useMediaQuery } from "react-responsive";
 import MenuContainer from "../../components/Menu/MenuContainer";
-import searchIcon from "../../assets/search-white-18dp.svg";
+import searchIcon from "../../assets/icons/search-white-18dp.svg";
+import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
+import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
 import theme from "../../components/Layout/theme";
+import heroImage from "../../assets/images/hero-image3.jpg";
 
 const Header = ({ isUser }) => {
   const menuLinks = isUser ? loggedInLinks : loggedOutLinks;
@@ -33,10 +36,23 @@ const Header = ({ isUser }) => {
         px={paddingHeader}
         py={3}
         color="white"
-        bg="black"
-        alignItems="center"
+        alignItems="flex-start"
+        height={500}
+        sx={{
+          overflow: "hidden",
+          width: "100%",
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url(${heroImage})`,
+          backgroundAttachment: "scroll",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <Heading fontFamily={theme.fonts.fontFamily} fontSize={3} fontWeight="bold">
+        <Heading
+          fontFamily={theme.fonts.fontFamily}
+          fontSize={3}
+          fontWeight="bold"
+        >
           Home
         </Heading>
 
@@ -44,6 +60,9 @@ const Header = ({ isUser }) => {
 
         {isLaptop && (
           <>
+            <TwitterIcon />
+            <FacebookIcon />
+
             {menuLinks.right.map((link) => (
               <Link
                 key={link.id}
