@@ -6,6 +6,7 @@ import { loggedOutLinks, loggedInLinks } from "./links";
 import { useMediaQuery } from "react-responsive";
 import MenuContainer from "../../components/Menu/MenuContainer";
 import searchIcon from "../../assets/search-white-18dp.svg";
+import theme from "../../components/Layout/theme";
 
 const Header = ({ isUser }) => {
   const menuLinks = isUser ? loggedInLinks : loggedOutLinks;
@@ -35,7 +36,7 @@ const Header = ({ isUser }) => {
         bg="black"
         alignItems="center"
       >
-        <Heading fontSize={3} fontWeight="bold">
+        <Heading fontFamily={theme.fonts.fontFamily} fontSize={3} fontWeight="bold">
           Home
         </Heading>
 
