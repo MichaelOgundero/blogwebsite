@@ -2,8 +2,7 @@ export const loggedOutLinks = {
     left: [],
     right: [
       { id: "About", component: () => "NavLink1" },
-      { id: "Portfolio", component: () => "NavLink2" },
-      { id: "Contact", component: () => "NavLink3" },
+      { id: "Contact", component: () => "NavLink2" },
     ],
   };
   

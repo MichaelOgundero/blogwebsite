@@ -15,6 +15,7 @@ const MenuContainer = ({ isOpen, menuLinks }) => {
             <Flex
               flexDirection="column"
               px={4}
+              py={6}
               sx={{
                 width: "100%",
               }}
