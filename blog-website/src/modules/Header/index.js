@@ -5,9 +5,9 @@ import { Input } from "@rebass/forms";
 import { loggedOutLinks, loggedInLinks } from "./links";
 import { useMediaQuery } from "react-responsive";
 import MenuContainer from "../../components/Menu/MenuContainer";
+import DropMenuContainer from "../../components/DropMenu/DropMenuContainer"
 import searchIcon from "../../assets/icons/search-white-18dp.svg";
-import { ReactComponent as TwitterIcon } from "../../assets/icons/twitter.svg";
-import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
+import userIcon from "../../assets/icons/person-black-24dp.svg";
 import theme from "../../components/Layout/theme";
 
 const Header = ({ isUser }) => {
@@ -15,6 +15,7 @@ const Header = ({ isUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [paddingHeader, setPaddingHeader] = useState(6);
   const [navBarColor, setNavBarColor] = useState("transparent");
+  const [dropMenuStatus, setDropMenuStatus] = useState(false)
 
   const handlePaddingHeader = (matches) => {
     if (matches) {
@@ -45,10 +46,12 @@ const Header = ({ isUser }) => {
           width: "100%",
         }}
       >
-        <div style={{
-          width: "100%",
-          display:"inline-block",
-        }}>
+        <div
+          style={{
+            width: "100%",
+            display: "inline-block",
+          }}
+        >
           <Heading
             fontFamily={theme.fonts.fontFamily}
             fontSize={3}
@@ -59,10 +62,21 @@ const Header = ({ isUser }) => {
             Home
           </Heading>
 
-
           {isLaptop && (
-            <div style={{display: "inline-block", float: "right", textAlign:"right"}}>
-              <div style={{ width: "30%", paddingRight: "1vw", display: "inline-block" }}>
+            <div
+              style={{
+                display: "inline-block",
+                float: "right",
+                textAlign: "right",
+              }}
+            >
+              <div
+                style={{
+                  width: "30%",
+                  paddingRight: "1vw",
+                  display: "inline-block",
+                }}
+              >
                 <Input
                   id="searchBox"
                   placeholder="Search..."
@@ -100,57 +114,54 @@ const Header = ({ isUser }) => {
                   {link.id}
                 </Link>
               ))}
-              
-              <div style={{display:"inline-block", paddingLeft: "1%"}}>
-              <Button
-                sx={{
-                  textDecoration: "none",
-                  fontSize: "14px",
+
+               <div
+                style={{
                   display: "inline-block",
-                  padding: "8px 16px",
-                  fontWeight: "bold",
-                  color: "white",
-                  borderRadius : "40px",
-                  backgroundColor: "transparent",
-                  ":hover": {
-                    cursor: "pointer",
-                    color: "black",
-                    backgroundColor: "white"
-                  }
+                  position: "relative"
                 }}
               >
-                Login
-              </Button>
+                <Input
+                  id="searchBox"
+                  fontSize={1}
+                  onClick={()=>{setDropMenuStatus(!dropMenuStatus)}}
+                  sx={{
+                    minWidth: "0",
+                    maxWidth:"0",
+                    width: "0",
+                    textDecoration: "none",
+                    outline: "none",
+                    borderBottom: "none",
+                    borderTop: "none",
+                    borderLeft: "none",
+                    borderRight: "none",
+                    backgroundImage: `url(${userIcon})`,
+                    backgroundRepeat: "no-repeat",
+                    paddingLeft: "20px",
+
+                    cursor: "pointer"
+                  }}
+                />
+                <DropMenuContainer isOpen={dropMenuStatus} isUser={isUser}/>
+                
               </div>
-              <div style={{display:"inline-block"}}>
-              <Button
-                sx={{
-                  textDecoration: "none",
-                  fontSize: "14px",
-                  display: "inline-block",
-                  padding: "8px 16px",
-                  fontWeight: "bold",
-                  color: "white",
-                  borderRadius : "40px",
-                  backgroundColor: "transparent",
-                  ":hover": {
-                    cursor: "pointer",
-                    color: "black",
-                    backgroundColor: "white"
-                  }
-                }}
-              >
-                Register
-              </Button>
-              </div>
-              
             </div>
           )}
 
           {isMobile && (
-            <div style={{display:"inline-block", float:"right", marginTop:"1px"}}>
+            <div
+              style={{
+                display: "inline-block",
+                float: "right",
+                marginTop: "1px",
+              }}
+            >
               <Box
-                sx={{ cursor: "pointer", display:"inline-block", float:"right" }}
+                sx={{
+                  cursor: "pointer",
+                  display: "inline-block",
+                  float: "right",
+                }}
                 onClick={() => {
                   setIsOpen(!isOpen);
                   if (isOpen !== true) {
