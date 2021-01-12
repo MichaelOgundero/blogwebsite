@@ -26,7 +26,7 @@ const ModalContainer = ({ showModal, handleClose }) => {
             backgroundColor: "#fefefe",
             margin: "auto",
             padding: "8px",
-            border: "1px solid red",
+            borderRadius: "16x",
             width: "350px",
             height: "500px"
           }}
