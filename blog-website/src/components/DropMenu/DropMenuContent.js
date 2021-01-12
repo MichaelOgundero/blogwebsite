@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { Input } from "@rebass/forms";
 import registerIcon from "../../assets/icons/person_add-black-18dp.svg";
 import loginIcon from "../../assets/icons/login-black-18dp.svg";
+import ModalContaier from "../../components/Modal/ModalContainer"
 
 const DropMenuContent = ({ isUser }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalClose = () => {
+    setShowModal(!showModal);
+  }
+
   if (isUser) {
     return (
       <div
@@ -40,6 +47,7 @@ const DropMenuContent = ({ isUser }) => {
           }}
         >
           <Input
+            onClick={()=>{setShowModal(true)}}
             id="searchBox"
             placeholder="Register"
             sx={{
@@ -108,6 +116,7 @@ const DropMenuContent = ({ isUser }) => {
             }}
           />
         </div>
+        <ModalContaier showModal={showModal} handleClose={handleModalClose}/>
       </div>
     );
   }
