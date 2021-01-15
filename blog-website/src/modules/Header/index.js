@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Flex, Heading, Box, Link, Button } from "rebass";
+import { Flex, Heading, Box, Link} from "rebass";
 import { Input } from "@rebass/forms";
 import { loggedOutLinks, loggedInLinks } from "./links";
 import { useMediaQuery } from "react-responsive";
@@ -24,6 +24,10 @@ const Header = ({ isUser }) => {
       setPaddingHeader(4);
     }
   };
+
+  const handleDropMenuStatus = () =>{
+    setDropMenuStatus(true);
+  }
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 768 });
   const isLaptop = useMediaQuery(
@@ -142,7 +146,7 @@ const Header = ({ isUser }) => {
                     cursor: "pointer"
                   }}
                 />
-                <DropMenuContainer isOpen={dropMenuStatus} isUser={isUser}/>
+                <DropMenuContainer isOpen={dropMenuStatus} isUser={isUser} handleDropMenu={handleDropMenuStatus}/>
                 
               </div>
             </div>

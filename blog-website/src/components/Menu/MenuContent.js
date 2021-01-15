@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Box } from "rebass";
+import { Link } from "rebass";
 import PropTypes from "prop-types";
 import { Input } from "@rebass/forms";
 import searchIcon from "../../assets/icons/search-black-18dp.svg";

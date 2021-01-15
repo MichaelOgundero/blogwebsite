@@ -7,9 +7,14 @@ import ModalContaier from "../../components/Modal/ModalContainer"
 
 const DropMenuContent = ({ isUser }) => {
   const [showModal, setShowModal] = useState(false);
+  const [activeTab, setActiveTab] = useState("")
 
   const handleModalClose = () => {
     setShowModal(!showModal);
+  }
+
+  const handleActiveTab = (tab) => {
+    setActiveTab(tab);
   }
 
   if (isUser) {
@@ -47,8 +52,7 @@ const DropMenuContent = ({ isUser }) => {
           }}
         >
           <Input
-            onClick={()=>{setShowModal(true)}}
-            id="searchBox"
+            onClick={()=>{setShowModal(true); setActiveTab("Register")}}
             placeholder="Register"
             sx={{
               color: "transparent",
@@ -86,7 +90,7 @@ const DropMenuContent = ({ isUser }) => {
           }}
         >
           <Input
-            id="searchBox"
+            onClick={()=>{setShowModal(true); setActiveTab("Login")}}
             placeholder="Login"
             sx={{
               color: "transparent",
@@ -116,7 +120,7 @@ const DropMenuContent = ({ isUser }) => {
             }}
           />
         </div>
-        <ModalContaier showModal={showModal} handleClose={handleModalClose}/>
+        <ModalContaier showModal={showModal} handleClose={handleModalClose} activeTab={activeTab} handleActiveTab={handleActiveTab}/>
       </div>
     );
   }

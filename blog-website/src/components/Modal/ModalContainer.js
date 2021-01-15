@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Button } from "rebass";
-import closeButton from "../../assets/icons/close-black-18dp.svg";
+import { Box} from "rebass";
+import MenuTabContainer from "../MenuTab/MenuTabContainer"
 
-const ModalContainer = ({ showModal, handleClose }) => {
-  if (showModal) {
+const ModalContainer = ({ showModal, handleClose, activeTab, handleActiveTab }) => {
+    if (showModal) {
     return (
       <Box
         style={{
@@ -17,7 +17,6 @@ const ModalContainer = ({ showModal, handleClose }) => {
           width: "100%",
           height: "100%",
           overflow: "auto",
-          backgroundColor: `rgb(0,0,0)`,
           backgroundColor: `rgb(0,0,0,0.4)`,
         }}
       >
@@ -26,7 +25,7 @@ const ModalContainer = ({ showModal, handleClose }) => {
             backgroundColor: "#fefefe",
             margin: "auto",
             padding: "8px",
-            borderRadius: "16x",
+            borderRadius: "16px",
             width: "350px",
             height: "500px"
           }}
@@ -39,7 +38,6 @@ const ModalContainer = ({ showModal, handleClose }) => {
             height="18px"
             style={{
                 cursor: "pointer",
-                float: "right",
             }}
             onClick={()=>{handleClose()}}
           >
@@ -47,8 +45,11 @@ const ModalContainer = ({ showModal, handleClose }) => {
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
           </svg>
 
+          <MenuTabContainer activeTab={activeTab} handleActiveTab={handleActiveTab}/>
+
         </Box>
       </Box>
+      
     );
   } else {
     return null;
@@ -56,8 +57,10 @@ const ModalContainer = ({ showModal, handleClose }) => {
 };
 
 ModalContainer.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  showModal: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  handleActiveTab: PropTypes.func.isRequired
 };
 
 export default ModalContainer;

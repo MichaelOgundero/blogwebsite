@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import DropMenuContent from "../DropMenu/DropMenuContent";
 
-const DropMenuContainer = ({ isOpen, isUser }) => {
+const DropMenuContainer = ({ isOpen, isUser, handleDropMenu }) => {
   if (isOpen) {
     return (
       <div
@@ -17,7 +17,7 @@ const DropMenuContainer = ({ isOpen, isUser }) => {
           borderRadius: "10px",
         }}
       >
-        <DropMenuContent isUser={isUser} />
+        <DropMenuContent isUser={isUser} handleDropMenu={handleDropMenu} />
       </div>
     );
   }
@@ -28,6 +28,7 @@ const DropMenuContainer = ({ isOpen, isUser }) => {
 DropMenuContainer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   isUser: PropTypes.bool.isRequired,
+  handleDropMenu: PropTypes.func.isRequired
 };
 
 export default DropMenuContainer;
