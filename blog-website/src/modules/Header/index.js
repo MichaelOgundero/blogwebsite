@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import MenuContainer from "../../components/Menu/MenuContainer";
 import DropMenuContainer from "../../components/DropMenu/DropMenuContainer"
 import searchIcon from "../../assets/icons/search-white-18dp.svg";
-import userIcon from "../../assets/icons/person-black-24dp.svg";
+import userIcon from "../../assets/icons/person-white-24dp.svg";
 import theme from "../../components/Layout/theme";
 
 const Header = ({ isUser }) => {
@@ -126,7 +126,6 @@ const Header = ({ isUser }) => {
                 }}
               >
                 <Input
-                  id="searchBox"
                   fontSize={1}
                   onClick={()=>{setDropMenuStatus(!dropMenuStatus)}}
                   sx={{

@@ -1,56 +1,160 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {Flex} from  "rebass"
+import React from "react";
+import PropTypes from "prop-types";
+import { Flex, Text, Button } from "rebass";
+import { Input } from "@rebass/forms";
+import userAvatar from "../../assets/icons/user-icon.svg";
+import userIcon from "../../assets/icons/person-black-24dp.svg";
+import passwordIcon from "../../assets/icons/vpn_key-black-18dp.svg";
 
-const MenuTabContent = ({activeTab}) => {
-    if(activeTab === "Register"){
-        return(
-            <Flex
-                flexDirection = "column"
-                my={2}
-                sx={{
-                    border: "1px solid red",
-                    width: "100%",
-                    height: "100%"
-                }}
-            >
-                <div>
-                    Register
-                </div>
-                <div>
-                    register
-                </div>
-            </Flex>
-        )
-    }
-    if(activeTab === "Login"){
-        return(
-            <Flex
-                flexDirection = "column"
-                my={2}
-                sx={{
-                border: "1px solid red",
-                width: "100%",
-                height: "100%"
+const MenuTabContent = ({ activeTab }) => {
+  if (activeTab === "Register") {
+    return (
+      <Flex
+        flexDirection="column"
+        my={2}
+        sx={{
+          border: "1px solid red",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <div>Register</div>
+        <div>register</div>
+      </Flex>
+    );
+  }
+  if (activeTab === "Login") {
+    return (
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        my={3}
+        sx={{
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <div>
+          <img width="128px" height="128px" src={userAvatar} alt="user icon" />
+        </div>
+
+        <div
+          style={{
+            paddingTop: "40px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Input
+            id="Username"
+            placeholder="Username"
+            fontSize={2}
+            sx={{
+              outline: "none",
+              width: "70%",
+              padding: "4px",
+              borderTop: "none",
+              borderLeft: "none",
+              borderRight: "none",
+              borderBottom: "2px solid black",
+              backgroundImage: `url(${userIcon})`,
+              backgroundRepeat: "no-repeat",
+              paddingLeft: "32px",
             }}
-            >
-                <div>
-                    Login
-                </div>
-                <div>
-                    login
-                </div>
-            </Flex>
-        )
-    }else{
-        return null;
-        
-    }
-}
+          />
+        </div>
 
+        <div
+          style={{
+            paddingTop: "24px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Input
+            id="Password"
+            placeholder="Password"
+            fontSize={2}
+            type="password"
+            sx={{
+              outline: "none",
+              width: "70%",
+              padding: "4px",
+              borderTop: "none",
+              borderLeft: "none",
+              borderRight: "none",
+              borderBottom: "2px solid black",
+              backgroundImage: `url(${passwordIcon})`,
+              backgroundRepeat: "no-repeat",
+              paddingLeft: "32px",
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            paddingTop: "12px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Text 
+            fontSize={1} 
+            sx={{
+                borderBottom: "1px solid transparent",
+                ":hover":{
+                    cursor: "pointer",
+                    borderBottom: "1px solid black",
+                    fontWeight: "bold"
+                }
+            }}    
+        >
+            {"Forgot password?"}
+          </Text>
+        </div>
+
+        <div
+          style={{
+            paddingTop: "32px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+              <Button
+                sx={{
+                  textDecoration: "none",
+                  fontSize: "14px",
+                  display: "inline-block",
+                  width: "60%",
+                  padding: "8px 16px",
+                  fontWeight: "bold",
+                  color: "black",
+                  borderRadius : "40px",
+                  backgroundColor: "white",
+                  border: "2px solid black",
+                  ":hover": {
+                    cursor: "pointer",
+                    backgroundColor: "black",
+                    border: "2px solid black",
+                    color: "white"
+                  }
+                }}
+              >
+                Login
+              </Button>
+
+        </div>
+
+
+      </Flex>
+    );
+  } else {
+    return null;
+  }
+};
 
 MenuTabContent.propTypes = {
-    activeTab: PropTypes.string.isRequired,
-}
+  activeTab: PropTypes.string.isRequired,
+};
 
 export default MenuTabContent;
