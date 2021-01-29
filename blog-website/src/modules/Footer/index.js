@@ -70,6 +70,7 @@ const Footer = () => {
                   backgroundColor: "white",
                   borderRadius: "50%",
                   display: "flex",
+                  padding: "12px",
                   justifyContent: "center",
                   ":hover": {
                     cursor: "pointer",
@@ -87,13 +88,14 @@ const Footer = () => {
                   backgroundColor: "white",
                   borderRadius: "50%",
                   display: "flex",
+                  padding: "12px",
                   justifyContent: "center",
                   ":hover": {
                     cursor: "pointer",
                   },
                 }}
               >
-                <img alt="twitter icon" src={facebookIcon} />
+                <img alt="facebook icon" src={facebookIcon} />
               </Box>
 
               <Box
@@ -111,7 +113,7 @@ const Footer = () => {
                   },
                 }}
               >
-                <img alt="twitter icon" src={instagramIcon} />
+                <img alt="instagram icon" src={instagramIcon} />
               </Box>
             </Flex>
 

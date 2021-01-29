@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Flex, Heading, Box, Link} from "rebass";
 import { Input } from "@rebass/forms";
@@ -16,6 +16,7 @@ const Header = ({ isUser }) => {
   const [paddingHeader, setPaddingHeader] = useState(6);
   const [navBarColor, setNavBarColor] = useState("transparent");
   const [dropMenuStatus, setDropMenuStatus] = useState(false)
+  const [scroll, setScroll] = useState(false)
 
   const handlePaddingHeader = (matches) => {
     if (matches) {
@@ -36,9 +37,21 @@ const Header = ({ isUser }) => {
     handlePaddingHeader
   );
 
+  useEffect(() => {
+    document.addEventListener("scroll", ()=>{
+     // setScroll(window.scrollY > 200)
+     if(window.scrollY > 500){
+       setNavBarColor("black")
+     }else{
+       setNavBarColor("transparent")
+     }
+    })
+  })
+
   return (
     <div>
       <Flex
+
         px={paddingHeader}
         py={4}
         color="white"
