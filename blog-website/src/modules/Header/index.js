@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Flex, Heading, Box, Link} from "rebass";
 import { Input } from "@rebass/forms";
 import { loggedOutLinks, loggedInLinks } from "./links";
 import { useMediaQuery } from "react-responsive";
+//import {fadeInDown, bounce} from "react-animations"
 import MenuContainer from "../../components/Menu/MenuContainer";
 import DropMenuContainer from "../../components/DropMenu/DropMenuContainer"
 import searchIcon from "../../assets/icons/search-white-18dp.svg";
@@ -15,8 +16,10 @@ const Header = ({ isUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [paddingHeader, setPaddingHeader] = useState(6);
   const [navBarColor, setNavBarColor] = useState("transparent");
+  const [dropShadow, setDropShadow] = useState("none")
   const [dropMenuStatus, setDropMenuStatus] = useState(false)
-  const [scroll, setScroll] = useState(false)
+  const dropMenuEl = useRef(null)
+  //const [fadeInAnimation, setFadeInAnimation] = useState(null);
 
   const handlePaddingHeader = (matches) => {
     if (matches) {
@@ -27,7 +30,7 @@ const Header = ({ isUser }) => {
   };
 
   const handleDropMenuStatus = () =>{
-    setDropMenuStatus(true);
+    setDropMenuStatus(!dropMenuStatus);
   }
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 768 });
@@ -39,14 +42,33 @@ const Header = ({ isUser }) => {
 
   useEffect(() => {
     document.addEventListener("scroll", ()=>{
-     // setScroll(window.scrollY > 200)
      if(window.scrollY > 500){
        setNavBarColor("black")
+       setDropShadow("0px 1px 10px #999")
+       //setFadeInAnimation(fadeInDown)
      }else{
        setNavBarColor("transparent")
+       setDropShadow("none")
+       //setFadeInAnimation(null)
      }
     })
-  })
+    
+    //NOT MY SHIT REVIEW IT AGAIN
+    function handleClickOutsideEvent(e){
+      if(dropMenuEl.current && !dropMenuEl.current.contains(e.target)){
+        console.log(dropMenuStatus)
+        if(dropMenuStatus){
+          handleDropMenuStatus()
+        }
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutsideEvent);
+    return()=>{
+      document.removeEventListener("mousedown", handleClickOutsideEvent)
+    }
+    
+  },)
+  //REVIEW NOT MY SHIT AGAIN
 
   return (
     <div>
@@ -61,6 +83,10 @@ const Header = ({ isUser }) => {
           position: "fixed",
           top: "0",
           width: "100%",
+          boxShadow: `${dropShadow}`,
+         /* "@keyframes fadeInDown": fadeInDown,
+          animationName: "fadeInDown",
+          animationDuration: "2s" */
         }}
       >
         <div
@@ -139,6 +165,8 @@ const Header = ({ isUser }) => {
                 }}
               >
                 <Input
+                  id="dropMenu"
+                  ref={dropMenuEl}
                   fontSize={1}
                   onClick={()=>{setDropMenuStatus(!dropMenuStatus)}}
                   sx={{

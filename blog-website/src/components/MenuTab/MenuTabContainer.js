@@ -14,7 +14,7 @@ const MenuTabContainer =({activeTab, handleActiveTab})=>{
 
 MenuTabContainer.propTypes = {
     activeTab: PropTypes.string.isRequired,
-    handleActiveTab: PropTypes.string.isRequired
+    handleActiveTab: PropTypes.func.isRequired
 }
 
 export default MenuTabContainer

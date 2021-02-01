@@ -1,12 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
-import { Box} from "rebass";
-import MenuTabContainer from "../MenuTab/MenuTabContainer"
+import { Box } from "rebass";
+import { fadeInDown, bounce, slideInDown } from "react-animations";
+import MenuTabContainer from "../MenuTab/MenuTabContainer";
 
-const ModalContainer = ({ showModal, handleClose, activeTab, handleActiveTab }) => {
-    if (showModal) {
+const ModalContainer = ({
+  showModal,
+  handleClose,
+  activeTab,
+  handleActiveTab,
+  handleDropMenu
+}) => {
+
+
+  if (showModal) {
     return (
       <Box
+        onClick={()=>{handleClose()}}
         style={{
           display: "block",
           position: "fixed",
@@ -27,7 +37,10 @@ const ModalContainer = ({ showModal, handleClose, activeTab, handleActiveTab }) 
             padding: "8px",
             borderRadius: "16px",
             width: "350px",
-            height: "500px"
+            height: "500px",
+            '@keyframes fadeInDown': fadeInDown,
+            animationName: "fadeInDown",
+            animationDuration: "2s",
           }}
         >
           <svg
@@ -37,19 +50,23 @@ const ModalContainer = ({ showModal, handleClose, activeTab, handleActiveTab }) 
             width="18px"
             height="18px"
             style={{
-                cursor: "pointer",
+              cursor: "pointer",
             }}
-            onClick={()=>{handleClose()}}
+            onClick={() => {
+              handleClose();
+            }}
           >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
           </svg>
 
-          <MenuTabContainer activeTab={activeTab} handleActiveTab={handleActiveTab}/>
-
+          <MenuTabContainer
+            activeTab={activeTab}
+            handleActiveTab={handleActiveTab}
+          />
         </Box>
       </Box>
-      
+
     );
   } else {
     return null;
@@ -60,7 +77,7 @@ ModalContainer.propTypes = {
   showModal: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   activeTab: PropTypes.string.isRequired,
-  handleActiveTab: PropTypes.func.isRequired
+  handleActiveTab: PropTypes.func.isRequired,
 };
 
 export default ModalContainer;
