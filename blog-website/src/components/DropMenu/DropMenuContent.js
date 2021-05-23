@@ -5,7 +5,7 @@ import registerIcon from "../../assets/icons/person_add-black-18dp.svg";
 import loginIcon from "../../assets/icons/login-black-18dp.svg";
 import ModalContaier from "../../components/Modal/ModalContainer"
 
-const DropMenuContent = ({ isUser, handleDropMenu }) => {
+const DropMenuContent = ({ isUser,  }) => {
   const [showModal, setShowModal] = useState(false);
   const [activeTab, setActiveTab] = useState("")
 
@@ -28,7 +28,7 @@ const DropMenuContent = ({ isUser, handleDropMenu }) => {
           flexDirection: "column",
         }}
       >
-        <a>Link 1</a>
+        <a style={{width: "100%"}}>Hi, Benjamin</a>
         <a>Link 2</a>
       </div>
     );
@@ -42,6 +42,7 @@ const DropMenuContent = ({ isUser, handleDropMenu }) => {
           color: "black",
           paddingTop: "4px",
           paddingBottom: "4px",
+          width: "100%",
         }}
       >
         <div
@@ -120,7 +121,7 @@ const DropMenuContent = ({ isUser, handleDropMenu }) => {
             }}
           />
         </div>
-        <ModalContaier showModal={showModal} handleClose={handleModalClose} activeTab={activeTab} handleActiveTab={handleActiveTab} handleDropMenu={handleDropMenu}/>
+        <ModalContaier showModal={showModal} handleClose={handleModalClose} activeTab={activeTab} handleActiveTab={handleActiveTab} />
       </div>
     );
   }

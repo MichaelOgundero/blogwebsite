@@ -9,7 +9,6 @@ const ModalContainer = ({
   handleClose,
   activeTab,
   handleActiveTab,
-  handleDropMenu
 }) => {
 
 

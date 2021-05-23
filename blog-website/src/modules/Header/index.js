@@ -56,10 +56,9 @@ const Header = ({ isUser }) => {
     //NOT MY SHIT REVIEW IT AGAIN
     function handleClickOutsideEvent(e){
       if(dropMenuEl.current && !dropMenuEl.current.contains(e.target)){
-        console.log(dropMenuStatus)
-        if(dropMenuStatus){
+       /* if(dropMenuStatus){
           handleDropMenuStatus()
-        }
+        }*/
       }
     }
     document.addEventListener("mousedown", handleClickOutsideEvent);
@@ -68,7 +67,7 @@ const Header = ({ isUser }) => {
     }
     
   },)
-  //REVIEW NOT MY SHIT AGAIN
+  //REVIEW NOT MY SHIT AGAIN, detect click outside react component: stackoverflow
 
   return (
     <div>
@@ -186,7 +185,7 @@ const Header = ({ isUser }) => {
                     cursor: "pointer"
                   }}
                 />
-                <DropMenuContainer isOpen={dropMenuStatus} isUser={isUser} handleDropMenu={handleDropMenuStatus}/>
+                <DropMenuContainer   isOpen={dropMenuStatus} isUser={isUser}/>
                 
               </div>
             </div>
