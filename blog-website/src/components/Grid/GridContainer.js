@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Flex, } from "rebass";
 import { useMediaQuery } from "react-responsive";
+import GridContent from "./GridContent";
 
 
 const GridContainer = () => {
@@ -22,46 +23,25 @@ const GridContainer = () => {
         handlePaddingHeader
     );
 
-
-
-
     return (
         <div>
             <Flex
-
                 px={paddingHeader}
                 py={4}
-
                 alignItems="flex-start"
-
             >
                 <div
                     style={{
                         width: "100%",
                     }}
                 >
-
-
                     {isLaptop && (
-                        <div
-                            style={{
-                                border: '1px solid red',
 
-                            }}
-                        >
-                            laptop
-
-                        </div>
+                        <GridContent display={"LAPTOP"} />
                     )}
 
                     {isMobile && (
-                        <div
-                            style={{
-                                border: '1px solid red',
-                            }}
-                        >
-                            mobile
-                        </div>
+                        <GridContent display={"MOBILE"} />
                     )}
                 </div>
             </Flex>
