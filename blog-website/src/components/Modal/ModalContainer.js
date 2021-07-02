@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Box } from "rebass";
-import { fadeInDown, bounce, slideInDown } from "react-animations";
 import MenuTabContainer from "../MenuTab/MenuTabContainer";
 
 const ModalContainer = ({
@@ -12,10 +11,10 @@ const ModalContainer = ({
 }) => {
 
 
+
   if (showModal) {
     return (
       <Box
-        onClick={()=>{handleClose()}}
         style={{
           display: "block",
           position: "fixed",
@@ -37,9 +36,7 @@ const ModalContainer = ({
             borderRadius: "16px",
             width: "350px",
             height: "500px",
-            '@keyframes fadeInDown': fadeInDown,
-            animationName: "fadeInDown",
-            animationDuration: "2s",
+
           }}
         >
           <svg

@@ -1,12 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Flex, Text, Button } from "rebass";
 import { Input } from "@rebass/forms";
 import userAvatar from "../../assets/icons/user-icon.svg";
 import userIcon from "../../assets/icons/person-black-24dp.svg";
 import passwordIcon from "../../assets/icons/vpn_key-black-24dp.svg";
 
-const Login = ({}) => {
+const Login = () => {
   return (
     <Flex
       flexDirection="column"
@@ -31,6 +30,7 @@ const Login = ({}) => {
         <Input
           id="Username"
           placeholder="Username"
+          autoFocus={true}
           fontSize={2}
           sx={{
             outline: "none",
@@ -131,6 +131,5 @@ const Login = ({}) => {
   );
 };
 
-Login.propTypes = {};
 
 export default Login;

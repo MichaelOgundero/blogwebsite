@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import { Box } from "rebass";
 import heroImage from "../../assets/images/hero-image.jpg";
 
@@ -22,6 +22,6 @@ const HeroContainer = () => {
   );
 };
 
-HeroContainer.propTypes = {};
+//HeroContainer.propTypes = {};
 
 export default HeroContainer;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Flex, Button } from "rebass";
 import { Input } from "@rebass/forms";
 import groupAvatar from "../../assets/icons/group-icon.svg";
@@ -7,7 +6,7 @@ import userIcon from "../../assets/icons/person-black-24dp.svg";
 import passwordIcon from "../../assets/icons/vpn_key-black-24dp.svg";
 import emailIcon from "../../assets/icons/mail-black-24dp.svg";
 
-const Register = ({}) => {
+const Register = () => {
   return (
     <Flex
       flexDirection="column"
@@ -32,6 +31,7 @@ const Register = ({}) => {
         <Input
           id="Username"
           placeholder="Username"
+          autoFocus={true}
           fontSize={2}
           sx={{
             outline: "none",
@@ -56,9 +56,10 @@ const Register = ({}) => {
         }}
       >
         <Input
-          id="Email"
+          id="email"
           placeholder="Email"
           fontSize={2}
+          autocomplete={false}
           sx={{
             outline: "none",
             width: "75%",
@@ -163,6 +164,5 @@ const Register = ({}) => {
   );
 };
 
-Register.propTypes = {};
 
 export default Register;

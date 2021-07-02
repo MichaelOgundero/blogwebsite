@@ -2,41 +2,13 @@ import React from "react";
 //import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 import HeroContainer from "../components/Hero/HeroContainer"
+import GridContainer from "../components/Grid/GridContainer"
 
 const App = () => {
-  return(
+  return (
     <Layout>
-      <HeroContainer/>
-      <div>hi</div>
-      <div>hi</div>
-
-      <div>hi</div>
-
-      <div>hi</div>
-
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
-      <div>hi</div>
+      <HeroContainer />
+      <GridContainer />
 
     </Layout>
   )

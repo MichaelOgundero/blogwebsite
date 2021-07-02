@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Input } from "@rebass/forms";
 import registerIcon from "../../assets/icons/person_add-black-18dp.svg";
 import loginIcon from "../../assets/icons/login-black-18dp.svg";
 import ModalContaier from "../../components/Modal/ModalContainer"
 
-const DropMenuContent = ({ isUser,  }) => {
+const DropMenuContent = ({ isUser, isOpen }) => {
   const [showModal, setShowModal] = useState(false);
   const [activeTab, setActiveTab] = useState("")
 
@@ -28,7 +28,7 @@ const DropMenuContent = ({ isUser,  }) => {
           flexDirection: "column",
         }}
       >
-        <a style={{width: "100%"}}>Hi, Benjamin</a>
+        <a style={{ width: "100%" }}>Hi, Benjamin</a>
         <a>Link 2</a>
       </div>
     );
@@ -53,7 +53,7 @@ const DropMenuContent = ({ isUser,  }) => {
           }}
         >
           <Input
-            onClick={()=>{setShowModal(true); setActiveTab("Register");}}
+            onClick={() => { setShowModal(true); setActiveTab("Register"); }}
             placeholder="Register"
             sx={{
               color: "transparent",
@@ -91,7 +91,7 @@ const DropMenuContent = ({ isUser,  }) => {
           }}
         >
           <Input
-            onClick={()=>{setShowModal(true); setActiveTab("Login");}}
+            onClick={() => { setShowModal(true); setActiveTab("Login"); }}
             placeholder="Login"
             sx={{
               color: "transparent",
@@ -121,7 +121,7 @@ const DropMenuContent = ({ isUser,  }) => {
             }}
           />
         </div>
-        <ModalContaier showModal={showModal} handleClose={handleModalClose} activeTab={activeTab} handleActiveTab={handleActiveTab} />
+        <ModalContaier showModal={showModal} handleClose={handleModalClose} activeTab={activeTab} handleActiveTab={handleActiveTab} isOpen={isOpen} />
       </div>
     );
   }
