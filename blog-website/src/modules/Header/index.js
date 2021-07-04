@@ -133,7 +133,7 @@ const Header = ({ isUser }) => {
                   fontSize={2}
                   px={3}
                   sx={{
-                    fontWeight: "bold",
+                    fontWeight: "200",
                     display: "inline-block",
                     cursor: "pointer",
                     borderBottom: "3px solid transparent",
