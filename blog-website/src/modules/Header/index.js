@@ -74,7 +74,7 @@ const Header = ({ isUser }) => {
           top: "0",
           width: "100%",
           boxShadow: `${dropShadow}`,
-
+          zIndex: "2"
         }}
       >
         <div
@@ -155,6 +155,7 @@ const Header = ({ isUser }) => {
                 <Input
                   fontSize={1}
                   onClick={() => { setDropMenuStatus(!dropMenuStatus) }}
+                  //onBlur={() => { setDropMenuStatus(false) }}
                   sx={{
                     minWidth: "0",
                     maxWidth: "0",
