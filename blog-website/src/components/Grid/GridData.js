@@ -1,8 +1,17 @@
 import cardImage from "../../assets/images/card-image.jpg"
 import cardImage2 from "../../assets/images/card-image2.jpg"
 import cardImage3 from "../../assets/images/card-image3.jpg"
+import heroImage from "../../assets/images/hero-image.jpg"
 
 export const GridData = {
+    heroArray: [
+        {
+            title: "The Democracy Factory",
+            genre: "Politics",
+            author: "Jesse Barron",
+            image: heroImage
+        }
+    ],
     dataArray: [
         {
             title: "Digital Marketing in America's Oldest State",

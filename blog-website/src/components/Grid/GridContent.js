@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Card, Image, Box, Text } from "rebass";
-import cardImage from "../../assets/images/card-image.jpg"
-import cardImage2 from "../../assets/images/card-image2.jpg"
-import cardImage3 from "../../assets/images/card-image3.jpg"
 import { GridData } from "./GridData";
 import ForwardArrow from "../../assets/icons/forward-arrow.svg";
 
 
-const GridContent = ({ display }) => {
+const GridContent = ({ display, gridEl }) => {
     const data = GridData.dataArray
     const [arrowIcon, setArrowIcon] = useState(false)
-
 
     const handleTracker = (index) => {
         setArrowIcon(true)
@@ -30,6 +26,7 @@ const GridContent = ({ display }) => {
     if (display === "LAPTOP") {
         return (
             <div
+                ref={gridEl}
                 style={{
                     display: "grid",
                     gridGap: "2vw",

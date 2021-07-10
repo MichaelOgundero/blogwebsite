@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import GridContent from "./GridContent";
 
 
-const GridContainer = () => {
+const GridContainer = ({gridEl}) => {
     const [paddingHeader, setPaddingHeader] = useState(6);
 
 
@@ -37,7 +37,7 @@ const GridContainer = () => {
                 >
                     {isLaptop && (
 
-                        <GridContent display={"LAPTOP"} />
+                        <GridContent display={"LAPTOP"}  gridEl={gridEl}/>
                     )}
 
                     {isMobile && (
